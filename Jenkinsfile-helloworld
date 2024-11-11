@@ -1,16 +1,12 @@
 pipeline {
-    agent any  // Utilise un agent disponible (nœud Jenkins)
-
+    agent any
+    tools {
+        maven 'maven-3.6.3'  // Reference the Maven installation on Jenkins
+    }
     stages {
-        stage('Build') {
+        stage('Build') {  // Build stage
             steps {
-                sh 'echo Hello Build stage'  // Commande d'affichage dans le Build
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'echo hello Test stage'  // Commande d'affichage dans le Test
+                sh 'mvn clean package'  // Run Maven to clean and package the app
             }
         }
     }
