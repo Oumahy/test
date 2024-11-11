@@ -1,0 +1,17 @@
+pipeline {
+    agent any  // Utilise un agent disponible (nœud Jenkins)
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo Hello Build stage'  // Commande d'affichage dans le Build
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'echo hello Test stage'  // Commande d'affichage dans le Test
+            }
+        }
+    }
+}
